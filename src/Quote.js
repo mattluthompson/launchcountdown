@@ -12,6 +12,20 @@ class Quote extends React.Component {
         this.getQuote = this.getQuote.bind(this)
     }
 
+    /*
+    Ok -- code is close to being really solid.
+    I see that data in quotes.json is an array inside of an array and as a result you're using
+    map to access the array of quotes that you really want.
+    You could either honestly delete the external object that is causing your array to be length 1 and 
+    then just have an array of the quotes / author information themselves.
+    The other way you could handle this is define your quotes as const quotes = myQuote[0] above your
+    class declaration and then in
+    getQuote, instead of using map, you can simply say quote[quoteIndex].quote etc.
+    
+    Your code isn't "wrong" but these are suggestions for optimal implementation / high readability
+    should another engineer come along and need to add on to your work. 
+    
+    */
     getQuote(e) {
         var quoteIndex = Math.floor(Math.random() * 101) + 1 ;
 
